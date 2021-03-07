@@ -6,7 +6,7 @@ class Estoque {
   double valorUnitario;
   double valorVenda;
   double percentual;
-  EstoqueStatus estoqueStatus;
+  String estoqueStatus;
   DateTime dataRegistro;
   DateTime dataVencimento;
 

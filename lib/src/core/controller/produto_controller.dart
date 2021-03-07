@@ -65,12 +65,12 @@ abstract class ProdutoControllerBase with Store {
 
   @action
   Future<List<Produto>> getAll() async {
-    try {
+    // try {
       produtos = await produtoRepository.getAll();
       return produtos;
-    } catch (e) {
-      error = e;
-    }
+    // } catch (e) {
+    //   error = e;
+    // }
   }
 
   @action

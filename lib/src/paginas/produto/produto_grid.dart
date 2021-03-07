@@ -48,15 +48,12 @@ class _ProdutoGridState extends State<ProdutoGrid>
       favorito = Favorito();
       produto = Produto();
     }
+    produtoController.getAll();
     super.initState();
   }
 
   Future<void> onRefresh() {
-    if (filter != null) {
-      produtoController.getFilter(filter, size, page);
-    } else {
-      return produtoController.getFilter(filter, size, page);
-    }
+    return produtoController.getAll();
   }
 
   favoritar() {

@@ -1,4 +1,5 @@
 import 'package:nosso/src/core/model/loja.dart';
+import 'package:nosso/src/core/model/promocaotipo.dart';
 
 class Promocao {
   int id;
@@ -10,17 +11,20 @@ class Promocao {
   DateTime dataInicio;
   DateTime dataFinal;
   Loja loja;
+  PromocaoTipo promocaoTipo;
 
-  Promocao(
-      {this.id,
-      this.nome,
-      this.descricao,
-      this.foto,
-      this.desconto,
-      this.dataRegistro,
-      this.dataInicio,
-      this.dataFinal,
-      this.loja});
+  Promocao({
+    this.id,
+    this.nome,
+    this.descricao,
+    this.foto,
+    this.desconto,
+    this.dataRegistro,
+    this.dataInicio,
+    this.dataFinal,
+    this.loja,
+    this.promocaoTipo,
+  });
 
   Promocao.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -34,6 +38,9 @@ class Promocao {
     dataFinal = DateTime.tryParse(json['dataFinal'].toString());
 
     loja = json['loja'] != null ? new Loja.fromJson(json['loja']) : null;
+    promocaoTipo = json['promocaoTipo'] != null
+        ? new PromocaoTipo.fromJson(json['promocaoTipo'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -50,6 +57,10 @@ class Promocao {
 
     if (this.loja != null) {
       data['loja'] = this.loja.toJson();
+    }
+
+    if (this.promocaoTipo != null) {
+      data['promocaoTipo'] = this.promocaoTipo.toJson();
     }
     return data;
   }

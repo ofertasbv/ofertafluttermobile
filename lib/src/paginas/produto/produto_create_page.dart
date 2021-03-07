@@ -585,12 +585,12 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                       TextFormField(
                         controller: controllerQuantidade,
                         onSaved: (value) {
-                          p.valorTotal = double.tryParse(value);
+                          p.estoque.quantidade = int.tryParse(value);
                         },
                         validator: validateQuantidade,
                         decoration: InputDecoration(
-                          labelText: "Valor total",
-                          hintText: "Valor total",
+                          labelText: "Quantidade de estoque",
+                          hintText: "Entre com a quantidade",
                           prefixIcon: Icon(
                             Icons.mode_edit,
                             color: Colors.grey,
@@ -725,7 +725,7 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                         initialValue: p.estoque.dataRegistro,
                         format: dateFormat,
                         validator: validateDateRegistro,
-                        onSaved: (value) => p.dataRegistro = value,
+                        onSaved: (value) => p.estoque.dataRegistro = value,
                         decoration: InputDecoration(
                           labelText: "Data registro",
                           hintText: "99-09-9999",
@@ -761,7 +761,7 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                         initialValue: p.estoque.dataVencimento,
                         format: dateFormat,
                         validator: validateDateVencimento,
-                        onSaved: (value) => p.dataRegistro = value,
+                        onSaved: (value) => p.estoque.dataVencimento = value,
                         decoration: InputDecoration(
                           labelText: "Data vencimento",
                           hintText: "99-09-9999",
@@ -1183,16 +1183,16 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                       print("Data: ${p.dataRegistro}");
                       print("Agora: ${agora}");
 
-                      for (Cor c in corController.cores) {
-                        print("Cores: ${c.descricao}");
-                      }
+                      // for (Cor c in corController.cores) {
+                      //   print("Cores: ${c.descricao}");
+                      // }
+                      //
+                      // for (Tamanho c in tamanhoController.tamanhos) {
+                      //   print("Tamanhos: ${c.descricao}");
+                      // }
 
-                      for (Tamanho c in tamanhoController.tamanhos) {
-                        print("Tamanhos: ${c.descricao}");
-                      }
-
-                      p.cores.addAll(produtoController.corSelecionadas);
-                      p.tamanhos.addAll(produtoController.tamanhoSelecionados);
+                      // p.cores.addAll(produtoController.corSelecionadas);
+                      // p.tamanhos.addAll(produtoController.tamanhoSelecionados);
 
                       p.estoque.quantidade =
                           int.tryParse(controllerQuantidade.text);
@@ -1206,8 +1206,8 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                       produtoController.create(p).then((value) {
                         print("resultado : ${value}");
                       });
-                      // Navigator.of(context).pop();
-                      // buildPush(context);
+                      Navigator.of(context).pop();
+                      buildPush(context);
                     });
                   } else {
                     dialogs.information(
@@ -1233,16 +1233,16 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                       print("Medida: ${p.medida}");
                       print("Origem: ${p.origem}");
 
-                      for (Cor c in produtoController.corSelecionadas) {
-                        print("Cores: ${c.descricao}");
-                      }
-
-                      for (Tamanho c in produtoController.tamanhoSelecionados) {
-                        print("Tamanhos: ${c.descricao}");
-                      }
-
-                      p.cores.addAll(produtoController.corSelecionadas);
-                      p.tamanhos.addAll(produtoController.tamanhoSelecionados);
+                      // for (Cor c in produtoController.corSelecionadas) {
+                      //   print("Cores: ${c.descricao}");
+                      // }
+                      //
+                      // for (Tamanho c in produtoController.tamanhoSelecionados) {
+                      //   print("Tamanhos: ${c.descricao}");
+                      // }
+                      //
+                      // p.cores.addAll(produtoController.corSelecionadas);
+                      // p.tamanhos.addAll(produtoController.tamanhoSelecionados);
 
                       p.estoque.quantidade =
                           int.tryParse(controllerQuantidade.text);
@@ -1253,9 +1253,9 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                       p.estoque.percentual =
                           double.tryParse(controllerPecentual.text);
 
-                      // produtoController.update(p.id, p);
-                      // Navigator.of(context).pop();
-                      // buildPush(context);
+                      produtoController.update(p.id, p);
+                      Navigator.of(context).pop();
+                      buildPush(context);
                     });
                   }
                 }

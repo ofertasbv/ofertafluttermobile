@@ -4,14 +4,21 @@ class Categoria {
   int id;
   String nome;
   String foto;
+  String color;
   List<SubCategoria> subCategorias;
 
-  Categoria({this.id, this.nome, this.foto});
+  Categoria({
+    this.id,
+    this.nome,
+    this.foto,
+    this.color,
+  });
 
   Categoria.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     nome = json['nome'];
     foto = json['foto'];
+    color = json['color'];
 
     if (json['subCategorias'] != null) {
       subCategorias = new List<SubCategoria>();
@@ -26,6 +33,7 @@ class Categoria {
     data['id'] = this.id;
     data['nome'] = this.nome;
     data['foto'] = this.foto;
+    data['color'] = this.color;
     return data;
   }
 }

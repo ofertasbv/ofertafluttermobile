@@ -64,7 +64,7 @@ class _PromocaoCreatePageState extends State<PromocaoCreatePage>
     if (p == null) {
       p = Promocao();
     } else {
-      descontoController.text = p.desconto.toStringAsFixed(0);
+      descontoController.text = p.desconto.toStringAsFixed(2);
       lojaController.lojaSelecionada = p.loja;
     }
 
@@ -625,8 +625,10 @@ class _PromocaoCreatePageState extends State<PromocaoCreatePage>
                     dialogs.information(context, "prepando para o cadastro...");
                     Timer(Duration(seconds: 3), () {
                       p.loja = lojaController.lojaSelecionada;
+                      p.promocaoTipo = promocaoTipoController.promocaoTipoSelecionada;
 
                       print("Loja: ${p.loja.nome}");
+                      print("Promoção tipo: ${p.promocaoTipo.descricao}");
                       print("Nome: ${p.nome}");
                       print("Descrição: ${p.descricao}");
                       print("Foto: ${p.foto}");
@@ -646,8 +648,11 @@ class _PromocaoCreatePageState extends State<PromocaoCreatePage>
                         context, "preparando para o alteração...");
                     Timer(Duration(seconds: 3), () {
                       p.loja = lojaController.lojaSelecionada;
+                      p.promocaoTipo =
+                          promocaoTipoController.promocaoTipoSelecionada;
 
                       print("Loja: ${p.loja.nome}");
+                      print("Promoção tipo: ${p.promocaoTipo.descricao}");
                       print("Nome: ${p.nome}");
                       print("Descrição: ${p.descricao}");
                       print("Foto: ${p.foto}");

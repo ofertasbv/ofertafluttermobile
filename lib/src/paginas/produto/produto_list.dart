@@ -34,16 +34,12 @@ class _ProdutoListState extends State<ProdutoList>
 
   @override
   void initState() {
+    produtoController.getAll();
     super.initState();
   }
 
   Future<void> onRefresh() {
-    if (filter != null) {
-      produtoController.getFilter(filter, size, page);
-    } else {
-      return produtoController.getFilter(filter, size, page);
-    }
-    return null;
+    return produtoController.getAll();
   }
 
   @override

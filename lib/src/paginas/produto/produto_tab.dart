@@ -39,12 +39,7 @@ class _ProdutoTabState extends State<ProdutoTab> {
 
   @override
   void initState() {
-    if (s == null) {
-      subCategoriaController.getAll();
-      produtoController.getFilter(filter, size, page);
-    } else {
-      produtoController.getAllBySubCategoriaById(s.id);
-    }
+    produtoController.getAll();
     super.initState();
   }
 

@@ -145,6 +145,7 @@ class _CategoriaCreatePageState extends State<CategoriaCreatePage> {
   }
 
   ListView buildListViewForm(BuildContext context) {
+    var focus = FocusScope.of(context);
     return ListView(
       children: <Widget>[
         Container(
@@ -261,6 +262,40 @@ class _CategoriaCreatePageState extends State<CategoriaCreatePage> {
                             )
                           ],
                         ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(15),
+                  child: Column(
+                    children: <Widget>[
+                      TextFormField(
+                        initialValue: c.nome,
+                        onSaved: (value) => c.nome = value,
+                        validator: (value) =>
+                            value.isEmpty ? "campo obrigatório" : null,
+                        decoration: InputDecoration(
+                          labelText: "Nome",
+                          hintText: "entre com o nome",
+                          prefixIcon: Icon(
+                            Icons.edit,
+                            color: Colors.grey,
+                          ),
+                          contentPadding:
+                              EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0)),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.lime[900]),
+                            gapPadding: 1,
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                        ),
+                        onEditingComplete: () => focus.nextFocus(),
+                        keyboardType: TextInputType.text,
+                        maxLength: 50,
+                        maxLines: 1,
                       ),
                     ],
                   ),

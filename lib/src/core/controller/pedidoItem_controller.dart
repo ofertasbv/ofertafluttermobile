@@ -17,7 +17,7 @@ abstract class PedidoItemControllerBase with Store {
   }
 
   @observable
-  int quantidade = 0;
+  int quantidade = 1;
 
   @observable
   double valorUnitario = 0;
