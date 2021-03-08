@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -347,41 +346,41 @@ class _LojaCreatePageState extends State<LojaCreatePage> with ValidadorPessoa {
                         maxLength: 50,
                       ),
                       SizedBox(height: 10),
-                      DateTimeField(
-                        initialValue: p.dataRegistro,
-                        format: dateFormat,
-                        validator: validateDateRegsitro,
-                        onSaved: (value) => p.dataRegistro = value,
-                        decoration: InputDecoration(
-                          labelText: "data registro",
-                          hintText: "99-09-9999",
-                          prefixIcon: Icon(
-                            Icons.calendar_today,
-                            color: Colors.grey,
-                          ),
-                          suffixIcon: Icon(Icons.close),
-                          contentPadding:
-                              EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0)),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.purple[900]),
-                            gapPadding: 1,
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                        ),
-                        onEditingComplete: () => focus.nextFocus(),
-                        onShowPicker: (context, currentValue) {
-                          return showDatePicker(
-                            context: context,
-                            firstDate: DateTime(2000),
-                            initialDate: currentValue ?? DateTime.now(),
-                            locale: Locale('pt', 'BR'),
-                            lastDate: DateTime(2030),
-                          );
-                        },
-                        maxLength: 10,
-                      ),
+                      // DateTimeField(
+                      //   initialValue: p.dataRegistro,
+                      //   format: dateFormat,
+                      //   validator: validateDateRegsitro,
+                      //   onSaved: (value) => p.dataRegistro = value,
+                      //   decoration: InputDecoration(
+                      //     labelText: "data registro",
+                      //     hintText: "99-09-9999",
+                      //     prefixIcon: Icon(
+                      //       Icons.calendar_today,
+                      //       color: Colors.grey,
+                      //     ),
+                      //     suffixIcon: Icon(Icons.close),
+                      //     contentPadding:
+                      //         EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
+                      //     border: OutlineInputBorder(
+                      //         borderRadius: BorderRadius.circular(5.0)),
+                      //     focusedBorder: OutlineInputBorder(
+                      //       borderSide: BorderSide(color: Colors.purple[900]),
+                      //       gapPadding: 1,
+                      //       borderRadius: BorderRadius.circular(5.0),
+                      //     ),
+                      //   ),
+                      //   onEditingComplete: () => focus.nextFocus(),
+                      //   onShowPicker: (context, currentValue) {
+                      //     return showDatePicker(
+                      //       context: context,
+                      //       firstDate: DateTime(2000),
+                      //       initialDate: currentValue ?? DateTime.now(),
+                      //       locale: Locale('pt', 'BR'),
+                      //       lastDate: DateTime(2030),
+                      //     );
+                      //   },
+                      //   maxLength: 10,
+                      // ),
                       SizedBox(height: 10),
                       TextFormField(
                         initialValue: p.usuario.email,
@@ -542,7 +541,7 @@ class _LojaCreatePageState extends State<LojaCreatePage> with ValidadorPessoa {
                         print("Rasão social: ${p.razaoSocial}");
                         print("Cnpj: ${p.cnpj}");
                         print("Telefone: ${p.telefone}");
-                        print("DataRegistro: ${p.dataRegistro}");
+                        // print("DataRegistro: ${p.dataRegistro}");
                         print("Email: ${p.usuario.email}");
                         print("Senha: ${p.usuario.senha}");
 
@@ -568,7 +567,7 @@ class _LojaCreatePageState extends State<LojaCreatePage> with ValidadorPessoa {
                         print("Rasão social: ${p.razaoSocial}");
                         print("Cnpj: ${p.cnpj}");
                         print("Telefone: ${p.telefone}");
-                        print("DataRegistro: ${p.dataRegistro}");
+                        // print("DataRegistro: ${p.dataRegistro}");
                         print("Email: ${p.usuario.email}");
                         print("Senha: ${p.usuario.senha}");
 

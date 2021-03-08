@@ -7,8 +7,8 @@ class Pagamento {
   int quantidade;
   double valor;
   DateTime dataPagamento;
-  PagamentoForma pagamentoForma;
-  PagamentoTipo pagamentoTipo;
+  String pagamentoForma;
+  String pagamentoTipo;
   List<Fatura> faturas;
 
   Pagamento({

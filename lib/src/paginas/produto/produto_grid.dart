@@ -182,6 +182,7 @@ class _ProdutoGridState extends State<ProdutoGrid>
                         produtoController.arquivo + p.foto,
                         fit: BoxFit.cover,
                         width: double.infinity,
+                        height: 150,
                       ),
                     ),
                     Padding(

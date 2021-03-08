@@ -170,17 +170,17 @@ class _CategoriaSubCategoriaState extends State<CategoriaSubCategoria> {
               width: 50,
             ),
           ),
-          onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (BuildContext context) {
-                  return SubCategoriaProduto(
-                    c: p,
-                  );
-                },
-              ),
-            );
-          },
+          // onTap: () {
+          //   Navigator.of(context).push(
+          //     MaterialPageRoute(
+          //       builder: (BuildContext context) {
+          //         return SubCategoriaProduto(
+          //           c: p,
+          //         );
+          //       },
+          //     ),
+          //   );
+          // },
         );
       },
     );

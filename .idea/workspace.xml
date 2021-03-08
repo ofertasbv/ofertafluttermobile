@@ -19,25 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="263342a4-f045-40f0-8668-da83072b31ae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+    <list default="true" id="263342a4-f045-40f0-8668-da83072b31ae" name="Default Changelist" comment="corrigindo erros - 01">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/generated_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated_plugin_registrant.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/api/constants/constant_api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/api/constants/constant_api.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/core/controller/pedidoItem_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/controller/pedidoItem_controller.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/core/controller/produto_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/controller/produto_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/core/model/categoria.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/model/categoria.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/core/model/estoque.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/model/estoque.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/core/model/promocao.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/model/promocao.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/paginas/categoria/categoria_create_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/paginas/categoria/categoria_create_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/core/model/loja.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/model/loja.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/core/model/pagamento.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/model/pagamento.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/core/model/pedido.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/model/pedido.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/core/model/pessoa.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/model/pessoa.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/core/model/produto.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/core/model/produto.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/paginas/categoria/categoria_subcategoria.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/paginas/categoria/categoria_subcategoria.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/paginas/loja/loja_create_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/paginas/loja/loja_create_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/paginas/loja/loja_detalhes_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/paginas/loja/loja_detalhes_info.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/paginas/pedido/pedido_create_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/paginas/pedido/pedido_create_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/paginas/produto/produto_create_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/paginas/produto/produto_create_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/paginas/produto/produto_detalhes_info.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/paginas/produto/produto_detalhes_info.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/src/paginas/produto/produto_grid.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/paginas/produto/produto_grid.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/paginas/produto/produto_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/paginas/produto/produto_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/paginas/produto/produto_tab.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/paginas/produto/produto_tab.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/paginas/promocao/promocao_create_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/paginas/promocao/promocao_create_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +62,9 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -83,6 +85,14 @@
       <option name="presentableId" value="Default" />
       <updated>1615053944022</updated>
     </task>
+    <task id="LOCAL-00001" summary="corrigindo erros - 01">
+      <created>1615083939166</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1615083939166</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -99,27 +109,37 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="corrigindo erros - 01" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrigindo erros - 01" />
   </component>
   <component name="WindowStateProjectService">
     <state x="549" y="138" key="FileChooserDialogImpl" timestamp="1615057301793">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="138" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1615057301793" />
-    <state width="1476" height="478" key="GridCell.Tab.0.bottom" timestamp="1615083761401">
+    <state width="1476" height="478" key="GridCell.Tab.0.bottom" timestamp="1615148644429">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="478" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1615083761401" />
-    <state width="1476" height="478" key="GridCell.Tab.0.center" timestamp="1615083761401">
+    <state width="1476" height="478" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1615148644429" />
+    <state width="1476" height="478" key="GridCell.Tab.0.center" timestamp="1615148644429">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="478" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1615083761401" />
-    <state width="1476" height="478" key="GridCell.Tab.0.left" timestamp="1615083761400">
+    <state width="1476" height="478" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1615148644429" />
+    <state width="1476" height="478" key="GridCell.Tab.0.left" timestamp="1615148644429">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="478" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1615083761400" />
-    <state width="1476" height="478" key="GridCell.Tab.0.right" timestamp="1615083761401">
+    <state width="1476" height="478" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1615148644429" />
+    <state width="1476" height="478" key="GridCell.Tab.0.right" timestamp="1615148644429">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1476" height="478" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1615083761401" />
+    <state width="1476" height="478" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1615148644429" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1615087672480">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1615087672480" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1615083949844">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1615083949844" />
   </component>
 </project>

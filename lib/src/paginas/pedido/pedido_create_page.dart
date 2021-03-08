@@ -6,6 +6,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get_it/get_it.dart';
 import 'package:intl/intl.dart';
+import 'package:nosso/src/core/controller/cliente_controller.dart';
 import 'package:nosso/src/core/controller/loja_controller.dart';
 import 'package:nosso/src/core/controller/pedidoItem_controller.dart';
 import 'package:nosso/src/core/controller/pedido_controller.dart';
@@ -15,6 +16,7 @@ import 'package:nosso/src/core/model/loja.dart';
 import 'package:nosso/src/core/model/pedido.dart';
 import 'package:nosso/src/core/model/pedidoitem.dart';
 import 'package:nosso/src/core/model/usuario.dart';
+import 'package:nosso/src/paginas/pedido/pedido_page.dart';
 import 'package:nosso/src/paginas/pedidoitem/pedito_itens_page.dart';
 import 'package:nosso/src/paginas/permissao/permissao_page.dart';
 import 'package:nosso/src/util/dialogs/dialogs.dart';
@@ -39,14 +41,13 @@ class _PedidoCreatePageState extends State<PedidoCreatePage>
   var pedidoItemController = GetIt.I.get<PedidoItemController>();
   var usuarioController = GetIt.I.get<UsuarioController>();
   var lojaController = GetIt.I.get<LojaController>();
+  var clienteController = GetIt.I.get<ClienteController>();
 
   Dialogs dialogs = Dialogs();
 
   Pedido p;
-  Usuario cliente;
-  Usuario loja;
-  Loja l;
-  Cliente c;
+  Cliente cliente;
+  Loja loja;
   String statusPedido;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -61,11 +62,13 @@ class _PedidoCreatePageState extends State<PedidoCreatePage>
   void initState() {
     if (p == null) {
       p = Pedido();
-      cliente = Usuario();
-      loja = Usuario();
-      l = Loja();
-      c = Cliente();
+      loja = Loja();
+      cliente = Cliente();
+      statusPedido = "CRIADO";
+      buscarPessoaCliente(2);
+      buscarPessoaLoja(1);
     }
+
     super.initState();
   }
 
@@ -77,13 +80,15 @@ class _PedidoCreatePageState extends State<PedidoCreatePage>
     super.didChangeDependencies();
   }
 
-  buscarClienteByEmail(String email) async {
-    cliente = await usuarioController.getEmail(email);
+  buscarPessoaCliente(int id) async {
+    cliente = await clienteController.getById(id);
+    print("Cliente: ${cliente.nome}");
     return cliente;
   }
 
-  buscarLojaByEmail(String email) async {
-    loja = await usuarioController.getEmail(email);
+  buscarPessoaLoja(int id) async {
+    loja = await lojaController.getById(id);
+    print("Loja: ${loja.nome}");
     return loja;
   }
 
@@ -424,52 +429,68 @@ class _PedidoCreatePageState extends State<PedidoCreatePage>
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Text("Status do pedido"),
-                            RadioListTile(
-                              controlAffinity: ListTileControlAffinity.trailing,
-                              title: Text("CRIADO"),
-                              value: "CRIADO",
-                              groupValue: statusPedido,
-                              secondary: const Icon(Icons.shop_outlined),
-                              onChanged: (String valor) {
-                                setState(() {
-                                  statusPedido = valor;
-                                  print("STATUS: " + statusPedido);
-                                });
-                              },
-                            ),
-                            RadioListTile(
-                              controlAffinity: ListTileControlAffinity.trailing,
-                              title: Text("CANCELADO"),
-                              value: "CANCELADO",
-                              groupValue: statusPedido,
-                              secondary:
-                                  const Icon(Icons.delete_outline_outlined),
-                              onChanged: (String valor) {
-                                setState(() {
-                                  statusPedido = valor;
-                                  print("STATUS: " + statusPedido);
-                                });
-                              },
-                            ),
-                            RadioListTile(
-                              controlAffinity: ListTileControlAffinity.trailing,
-                              title: Text("ENTREGUE"),
-                              value: "ENTREGUE",
-                              groupValue: statusPedido,
-                              secondary: const Icon(Icons.delivery_dining),
-                              onChanged: (String valor) {
-                                setState(() {
-                                  statusPedido = valor;
-                                  print("STATUS: " + statusPedido);
-                                });
-                              },
-                            ),
-                          ],
+                        Text("Status do pedido"),
+                        RadioListTile(
+                          controlAffinity: ListTileControlAffinity.trailing,
+                          title: Text("CRIADO"),
+                          value: "CRIADO",
+                          groupValue: p.statusPedido == null
+                              ? p.statusPedido = statusPedido
+                              : p.statusPedido,
+                          secondary: const Icon(Icons.check_outlined),
+                          onChanged: (String valor) {
+                            setState(() {
+                              p.statusPedido = valor;
+                              print("StatusPedido: " + p.statusPedido);
+                            });
+                          },
+                        ),
+                        RadioListTile(
+                          controlAffinity: ListTileControlAffinity.trailing,
+                          title: Text("ENVIADO"),
+                          value: "ENVIADO",
+                          groupValue: p.statusPedido == null
+                              ? p.statusPedido = statusPedido
+                              : p.statusPedido,
+                          secondary: const Icon(Icons.check_outlined),
+                          onChanged: (String valor) {
+                            setState(() {
+                              p.statusPedido = valor;
+                              print("StatusPedido: " + p.statusPedido);
+                            });
+                          },
+                        ),
+                        RadioListTile(
+                          controlAffinity: ListTileControlAffinity.trailing,
+                          title: Text("CANCELADO"),
+                          value: "CANCELADO",
+                          groupValue: p.statusPedido == null
+                              ? p.statusPedido = statusPedido
+                              : p.statusPedido,
+                          secondary: const Icon(Icons.check_outlined),
+                          onChanged: (String valor) {
+                            setState(() {
+                              p.statusPedido = valor;
+                              print("StatusPedido: " + p.statusPedido);
+                            });
+                          },
+                        ),
+                        RadioListTile(
+                          controlAffinity: ListTileControlAffinity.trailing,
+                          title: Text("ENTREGUE"),
+                          value: "ENTREGUE",
+                          groupValue: p.statusPedido == null
+                              ? p.statusPedido = statusPedido
+                              : p.statusPedido,
+                          secondary: const Icon(Icons.check_outlined),
+                          onChanged: (String valor) {
+                            setState(() {
+                              p.statusPedido = valor;
+                              print("StatusPedido: " + p.statusPedido);
+                            });
+                          },
                         ),
                       ],
                     ),
@@ -490,15 +511,15 @@ class _PedidoCreatePageState extends State<PedidoCreatePage>
                 if (p.id == null) {
                   dialogs.information(context, "prepando para o cadastro...");
                   Timer(Duration(seconds: 3), () {
-                    buscarClienteByEmail("projetogdados@gmail.com");
-                    buscarLojaByEmail("lojadauris@gmail.com");
+                    p.cliente = cliente;
+                    p.loja = loja;
 
                     p.valorTotal = (pedidoItemController.total -
                         ((pedidoItemController.total * p.valorDesconto) / 100) +
                         p.valorFrete);
 
-                    print("Cliente: ${c.nome}");
-                    // print("Loja: ${loja.email}");
+                    print("Cliente: ${cliente.nome}");
+                    print("Loja: ${loja.nome}");
 
                     print("Descrição: ${p.descricao}");
                     print("Desconto: ${p.valorDesconto}");
@@ -558,7 +579,7 @@ class _PedidoCreatePageState extends State<PedidoCreatePage>
     return Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => PermissaoPage(),
+        builder: (context) => PedidoPage(),
       ),
     );
   }

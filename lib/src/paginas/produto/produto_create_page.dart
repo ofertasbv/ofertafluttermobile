@@ -104,6 +104,7 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
   String medida;
   String tamanho;
   String origem;
+  String estoqueStatus;
 
   File file;
 
@@ -119,6 +120,7 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
 
       medida = "UNIDADE";
       origem = "NACIONAL";
+      estoqueStatus = "BAIXO";
     } else {
       novo = p.novo;
       status = p.status;
@@ -262,13 +264,6 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
     var formatter = NumberFormat("00.00");
     var formata = new NumberFormat("#,##0.00", "pt_BR");
     p.estoque = e;
-
-    p.loja = lojaController.lojaSelecionada;
-    p.subCategoria = subCategoriaController.subCategoriaSelecionada;
-    p.marca = marcaController.marcaSelecionada;
-    p.promocao = promocaoController.promocaoSelecionada;
-    // p.tamanhos = produtoController.tamanhoSelecionados;
-    // p.cores = produtoController.corSelecionadas;
 
     return ListView(
       children: <Widget>[
@@ -721,77 +716,77 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                         enabled: false,
                       ),
                       SizedBox(height: 10),
-                      DateTimeField(
-                        initialValue: p.estoque.dataRegistro,
-                        format: dateFormat,
-                        validator: validateDateRegistro,
-                        onSaved: (value) => p.estoque.dataRegistro = value,
-                        decoration: InputDecoration(
-                          labelText: "Data registro",
-                          hintText: "99-09-9999",
-                          prefixIcon: Icon(
-                            Icons.calendar_today,
-                            color: Colors.grey,
-                          ),
-                          suffixIcon: Icon(Icons.close),
-                          contentPadding:
-                              EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0)),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.purple[900]),
-                            gapPadding: 1,
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                        ),
-                        onEditingComplete: () => focus.nextFocus(),
-                        onShowPicker: (context, currentValue) {
-                          return showDatePicker(
-                            context: context,
-                            firstDate: DateTime(2000),
-                            initialDate: currentValue ?? DateTime.now(),
-                            locale: Locale('pt', 'BR'),
-                            lastDate: DateTime(2030),
-                          );
-                        },
-                        maxLength: 10,
-                      ),
+                      // DateTimeField(
+                      //   initialValue: p.estoque.dataRegistro,
+                      //   format: dateFormat,
+                      //   validator: validateDateRegistro,
+                      //   onSaved: (value) => p.estoque.dataRegistro = value,
+                      //   decoration: InputDecoration(
+                      //     labelText: "Data registro",
+                      //     hintText: "99-09-9999",
+                      //     prefixIcon: Icon(
+                      //       Icons.calendar_today,
+                      //       color: Colors.grey,
+                      //     ),
+                      //     suffixIcon: Icon(Icons.close),
+                      //     contentPadding:
+                      //         EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
+                      //     border: OutlineInputBorder(
+                      //         borderRadius: BorderRadius.circular(5.0)),
+                      //     focusedBorder: OutlineInputBorder(
+                      //       borderSide: BorderSide(color: Colors.purple[900]),
+                      //       gapPadding: 1,
+                      //       borderRadius: BorderRadius.circular(5.0),
+                      //     ),
+                      //   ),
+                      //   onEditingComplete: () => focus.nextFocus(),
+                      //   onShowPicker: (context, currentValue) {
+                      //     return showDatePicker(
+                      //       context: context,
+                      //       firstDate: DateTime(2000),
+                      //       initialDate: currentValue ?? DateTime.now(),
+                      //       locale: Locale('pt', 'BR'),
+                      //       lastDate: DateTime(2030),
+                      //     );
+                      //   },
+                      //   maxLength: 10,
+                      // ),
                       SizedBox(height: 10),
-                      DateTimeField(
-                        initialValue: p.estoque.dataVencimento,
-                        format: dateFormat,
-                        validator: validateDateVencimento,
-                        onSaved: (value) => p.estoque.dataVencimento = value,
-                        decoration: InputDecoration(
-                          labelText: "Data vencimento",
-                          hintText: "99-09-9999",
-                          prefixIcon: Icon(
-                            Icons.calendar_today,
-                            color: Colors.grey,
-                          ),
-                          suffixIcon: Icon(Icons.close),
-                          contentPadding:
-                              EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0)),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.purple[900]),
-                            gapPadding: 1,
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                        ),
-                        onEditingComplete: () => focus.nextFocus(),
-                        onShowPicker: (context, currentValue) {
-                          return showDatePicker(
-                            context: context,
-                            firstDate: DateTime(2000),
-                            initialDate: currentValue ?? DateTime.now(),
-                            locale: Locale('pt', 'BR'),
-                            lastDate: DateTime(2030),
-                          );
-                        },
-                        maxLength: 10,
-                      ),
+                      // DateTimeField(
+                      //   initialValue: p.estoque.dataVencimento,
+                      //   format: dateFormat,
+                      //   validator: validateDateVencimento,
+                      //   onSaved: (value) => p.estoque.dataVencimento = value,
+                      //   decoration: InputDecoration(
+                      //     labelText: "Data vencimento",
+                      //     hintText: "99-09-9999",
+                      //     prefixIcon: Icon(
+                      //       Icons.calendar_today,
+                      //       color: Colors.grey,
+                      //     ),
+                      //     suffixIcon: Icon(Icons.close),
+                      //     contentPadding:
+                      //     EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
+                      //     border: OutlineInputBorder(
+                      //         borderRadius: BorderRadius.circular(5.0)),
+                      //     focusedBorder: OutlineInputBorder(
+                      //       borderSide: BorderSide(color: Colors.purple[900]),
+                      //       gapPadding: 1,
+                      //       borderRadius: BorderRadius.circular(5.0),
+                      //     ),
+                      //   ),
+                      //   onEditingComplete: () => focus.nextFocus(),
+                      //   onShowPicker: (context, currentValue) {
+                      //     return showDatePicker(
+                      //       context: context,
+                      //       firstDate: DateTime(2000),
+                      //       initialDate: currentValue ?? DateTime.now(),
+                      //       locale: Locale('pt', 'BR'),
+                      //       lastDate: DateTime(2030),
+                      //     );
+                      //   },
+                      //   maxLength: 10,
+                      // ),
                     ],
                   ),
                 ),
@@ -1162,6 +1157,15 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                     Timer(Duration(seconds: 3), () {
                       DateTime agora = DateTime.now();
 
+                      p.estoque.estoqueStatus = estoqueStatus;
+                      p.loja = lojaController.lojaSelecionada;
+                      p.subCategoria =
+                          subCategoriaController.subCategoriaSelecionada;
+                      p.marca = marcaController.marcaSelecionada;
+                      p.promocao = promocaoController.promocaoSelecionada;
+                      // p.tamanhos = produtoController.tamanhoSelecionados;
+                      // p.cores = produtoController.corSelecionadas;
+
                       print("Loja: ${p.loja.nome}");
                       print("SubCategoria: ${p.subCategoria.nome}");
                       print("Marca: ${p.marca.nome}");
@@ -1170,7 +1174,9 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                       print("Foto: ${p.foto}");
                       print("Código de Barra: ${p.codigoBarra}");
                       print("Produto: ${p.nome}");
+                      print("Descrição: ${p.descricao}");
                       print("Quantidade: ${p.estoque.quantidade}");
+                      print("Estoque Status: ${p.estoque.estoqueStatus}");
                       print("Valor: ${p.estoque.valorUnitario}");
 
                       print("Novo: ${p.novo}");
@@ -1180,7 +1186,8 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                       print("Medida: ${p.medida}");
                       print("Origem: ${p.origem}");
 
-                      print("Data: ${p.dataRegistro}");
+                      // print("Registro: ${p.estoque.dataRegistro}");
+                      // print("Vencimento: ${p.estoque.dataVencimento}");
                       print("Agora: ${agora}");
 
                       // for (Cor c in corController.cores) {
@@ -1223,6 +1230,7 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
                       print("Foto: ${p.foto}");
                       print("Código de Barra: ${p.codigoBarra}");
                       print("Produto: ${p.nome}");
+                      print("Descrição: ${p.descricao}");
                       print("Quantidade: ${p.estoque.quantidade}");
                       print("Valor: ${p.estoque.valorUnitario}");
 
@@ -1232,6 +1240,10 @@ class _ProdutoCreatePageState extends State<ProdutoCreatePage>
 
                       print("Medida: ${p.medida}");
                       print("Origem: ${p.origem}");
+
+                      // print("Registro: ${p.estoque.dataRegistro}");
+                      // print("Vencimento: ${p.estoque.dataVencimento}");
+                      print("Agora: ${agora}");
 
                       // for (Cor c in produtoController.corSelecionadas) {
                       //   print("Cores: ${c.descricao}");

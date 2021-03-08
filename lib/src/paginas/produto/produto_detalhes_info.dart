@@ -52,11 +52,11 @@ class _ProdutoDetalhesInfoState extends State<ProdutoDetalhesInfo> {
                         trailing: Icon(Icons.check_outlined),
                       ),
                       Divider(),
-                      ListTile(
-                        title: Text("Data Registro"),
-                        subtitle: Text("${dateFormat.format(p.dataRegistro)}"),
-                        trailing: Icon(Icons.check_outlined),
-                      ),
+                      // ListTile(
+                      //   title: Text("Data Registro"),
+                      //   subtitle: Text("${dateFormat.format(p.estoque.dataRegistro)}"),
+                      //   trailing: Icon(Icons.check_outlined),
+                      // ),
                       Divider(),
                       ListTile(
                         title: Text("Valor"),

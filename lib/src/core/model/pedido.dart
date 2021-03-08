@@ -14,7 +14,7 @@ class Pedido {
   List<PedidoItem> pedidoItems;
   Cliente cliente;
   Loja loja;
-  PedidoStatus statusPedido;
+  String statusPedido;
   String formaPagamento;
   DateTime dataHoraEntrega;
   DateTime dataRegistro;

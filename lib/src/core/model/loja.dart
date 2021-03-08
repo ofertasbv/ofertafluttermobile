@@ -8,7 +8,7 @@ class Loja extends Pessoa {
   String nome;
   String telefone;
   String tipoPessoa;
-  DateTime dataRegistro;
+  // DateTime dataRegistro;
   String foto;
   Usuario usuario = new Usuario();
   String razaoSocial;
@@ -21,7 +21,7 @@ class Loja extends Pessoa {
     this.nome,
     this.telefone,
     this.tipoPessoa,
-    this.dataRegistro,
+    // this.dataRegistro,
     this.foto,
     this.usuario,
     this.razaoSocial,
@@ -35,7 +35,7 @@ class Loja extends Pessoa {
     nome = json['nome'];
     telefone = json['telefone'];
     tipoPessoa = json['tipoPessoa'];
-    dataRegistro = DateTime.tryParse(json['dataRegistro'].toString());
+    // dataRegistro = DateTime.tryParse(json['dataRegistro'].toString());
     foto = json['foto'];
 
     usuario =
@@ -65,7 +65,7 @@ class Loja extends Pessoa {
     data['nome'] = this.nome;
     data['telefone'] = this.telefone;
     data['tipoPessoa'] = this.tipoPessoa;
-    data['dataRegistro'] = this.dataRegistro.toIso8601String();
+    // data['dataRegistro'] = this.dataRegistro.toIso8601String();
     data['foto'] = this.foto;
 
     if (this.usuario != null) {

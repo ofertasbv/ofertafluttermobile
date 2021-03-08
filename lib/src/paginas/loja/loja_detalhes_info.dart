@@ -62,12 +62,12 @@ class _LojaDetalhesInfoState extends State<LojaDetalhesInfo> {
                         leading: Icon(Icons.textsms_outlined),
                       ),
                       Divider(),
-                      ListTile(
-                        title: Text("Data Registro"),
-                        subtitle: Text("${dateFormat.format(p.dataRegistro)}"),
-                        trailing: Icon(Icons.check_outlined),
-                        leading: Icon(Icons.calendar_today_outlined),
-                      ),
+                      // ListTile(
+                      //   title: Text("Data Registro"),
+                      //   subtitle: Text("${dateFormat.format(p.dataRegistro)}"),
+                      //   trailing: Icon(Icons.check_outlined),
+                      //   leading: Icon(Icons.calendar_today_outlined),
+                      // ),
                       Divider(),
                       p.enderecos.isNotEmpty
                           ? ListTile(

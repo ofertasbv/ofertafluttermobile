@@ -66,15 +66,16 @@ abstract class ProdutoControllerBase with Store {
   @action
   Future<List<Produto>> getAll() async {
     // try {
-      produtos = await produtoRepository.getAll();
-      return produtos;
+    produtos = await produtoRepository.getAll();
+    return produtos;
     // } catch (e) {
     //   error = e;
     // }
   }
 
   @action
-  Future<List<Produto>> getFilter(ProdutoFilter filter, int size, int page) async {
+  Future<List<Produto>> getFilter(
+      ProdutoFilter filter, int size, int page) async {
     try {
       produtos = await produtoRepository.getFilter(filter, size, page);
       return produtos;
@@ -115,28 +116,29 @@ abstract class ProdutoControllerBase with Store {
 
   @action
   Future<int> create(Produto p) async {
-    try {
-      produto = await produtoRepository.create(p.toJson());
-      if (produto == null) {
-        mensagem = "sem dados";
-      } else {
-        return produto;
-      }
-    } on DioError catch (e) {
-      mensagem = e.message;
-      dioError = e;
-    }
+    // try {
+    produto = await produtoRepository.create(p.toJson());
+    return produto;
+    // if (produto == null) {
+    //   mensagem = "sem dados";
+    // } else {
+    //   return produto;
+    // }
+    // } on DioError catch (e) {
+    //   mensagem = e.message;
+    //   dioError = e;
+    // }
   }
 
   @action
   Future<int> update(int id, Produto p) async {
-    try {
-      produto = await produtoRepository.update(id, p.toJson());
-      return produto;
-    } on DioError catch (e) {
-      mensagem = e.message;
-      dioError = e;
-    }
+    // try {
+    produto = await produtoRepository.update(id, p.toJson());
+    return produto;
+    // } on DioError catch (e) {
+    //   mensagem = e.message;
+    //   dioError = e;
+    // }
   }
 
   @action
